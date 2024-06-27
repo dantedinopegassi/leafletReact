@@ -1,7 +1,9 @@
 // CON TYPESCRIPT
 
-import { control, Map, TileLayer } from "leaflet";
-import "leaflet.fullscreen"
+import { 
+    // control, 
+    Map, TileLayer } from "leaflet";
+// import "leaflet.fullscreen"
 
 const Model = {
     map: null as L.Map | null,
@@ -13,10 +15,15 @@ const Model = {
             attribution: '© OpenStreetMap contributors'
         }).addTo(this.map);
 
-        control.fullscreen().addTo(this.map)
+        // control.fullscreen().addTo(this.map)
     },
 
-
+    //ESTO ES UNA LAMBDA EXPRESSION
+    addPlugin(plugin: (map: L.Map) => void) : void {
+        if (this.map) {
+            plugin(this.map);
+        }
+    }
 }
 
 export default Model
